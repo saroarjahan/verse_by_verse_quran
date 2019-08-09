@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Easy Quran Memorize</title>
+	<link rel="shortcut icon" href="https://memorizequran.online/images/fav.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<div class="row">				
+				<div class="col-md-12 center">
+					<div class="modal" :class="{'is-active': isActive}">
+						  <div class="modal-background"></div>
+						  <div class="modal-card">
+						    <header class="modal-card-head">
+						      <p class="modal-card-title">About Memorize Quran Online</p>
+						      <button @click="close" class="delete" aria-label="close"></button>
+						    </header>
+						    <section class="modal-card-body">
+						      <div class="content">
+						        <h1>Purpose</h1>
+						        <p>The sole purpose of this small web-app is to benifit those who are committed to memorize  quran by heart. 
+
+						        Sometimes, its important to be attentive the same verse again and again. There are some mobile apps those are very good to use for this motivation. However, not enough work has  done based on web that might allow us to sleect a range of verses and listen  repeatedly.
+
+						        Alhamdulillah, this app shall allow us to select a range from a surah, I hope this work will be a small contribution to memorize The Holy Quran.
+						        </p>
+						        <h2>Is it Open-source?</h2>
+						        <p>Yes, This app is open-source, anyone is welcome to  use the source code from my github. I will really appreciate if someone work in this project and make it more usable. Please share this app with your friends and  families to learn Quran. </p>
+
+						        <h2>Contact</h2>
+						        <p>Feel free to send me an email at <i class="fas fa-envelope-square"></i> mjahan18@edu.oulu.fi . Shamefully, this work is done with very small amount of time, surely I was not able to do it how it should be done, there might be many issues. May Allah forgive me, please keep me in your prayers.</p>
+        
+						      </div>
+						    </section>
+						  </div>
+					</div>
+					<br>
+					<h5 class="title">Select Surah To Play</h5>
+					<select v-model="range" @change="onChange()">
+					  <option :value="1.69">1. Al-Fatihah</option>
+					  <option :value="2.2869">2. Al-Baqarah</option>
+					  <option :value="3.2009">3. Al Imran</option>
+					  <option :value="4.1769">4. An-Nisa'</option>
+					  <option :value="5.1209">5. Al-Ma'idah</option>
+					  <option :value="6.1659">6. Al-An'am</option>
+					  <option :value="7.2069">7. Al-A'raf</option>
+					  <option :value="8.759">8. Al-Anfal</option>
+					  <option :value="9.1299">9. At-Tawbah</option>
+					  <option :value="10.1099">10. Yunus</option>
+					  <option :value="11.1239">11. Hud</option>
+					  <option :value="12.1119">12. Yusuf</option>
+					  <option :value="13.439">13. Ar-Ra'd</option>
+					  <option :value="14.529">14. Ibraheem</option>
+					  <option :value="15.999">15. Al-Hijr</option>
+					  <option :value="16.1289">16. An-Nahl</option>
+					  <option :value="17.1119">17. Al-Isra</option>
+					  <option :value="18.1109">18. Al-Kahf</option>
+					  <option :value="19.989">19. Maryam</option>
+					  <option :value="20.1359">20. Ta-Ha</option>
+					  <option :value="21.1129">21. Al-Anbiya'</option>
+					  <option :value="22.789">22. Al-Hajj</option>
+					  <option :value="23.1189">23. Al-Mu'minoon</option>
+					  <option :value="24.649">24. An-Nur</option>
+					  <option :value="25.779">25. Al-Furqan</option>
+					  <option :value="26.2279">26. ash-Shu`ara'</option>
+					  <option :value="27.939">27. An-Naml</option>
+					  <option :value="28.889">28. Al-Qasas</option>
+					  <option :value="29.699">29. Al-`Ankabut</option>
+					  <option :value="30.609">30. Ar-Rum</option>
+					  <option :value="31.349">31. Luqman</option>
+					  <option :value="32.309">32. As-Sajdah</option>
+					  <option :value="33.739">33. Al-Ahzab</option>
+					  <option :value="34.459">34. Saba'</option>
+					  <option :value="35.459">35. Fatir</option>
+					  <option :value="36.839">36. Yaseen</option>
+					  <option :value="37.1829">37. As-Saffat</option>
+					  <option :value="38.889">38. Sad</option>
+					  <option :value="39.759">39. Az-Zumar</option>
+					  <option :value="40.859">40. Ghafir</option>
+					  <option :value="41.549">41. Fussilat</option>
+					  <option :value="42.539">42. Ash-Shura</option>
+					  <option :value="43.899">43. Az-Zukhruf</option>
+					  <option :value="44.599">44. Ad-Dukhan</option>
+					  <option :value="45.379">45. Al-Jathiyah</option>
+					  <option :value="46.359">46. Al-Ahqaf</option>
+					  <option :value="47.389">47. Muhammad</option>
+					  <option :value="48.299">48. Al-Fath</option>
+					  <option :value="49.189">49. Al-Hujurat</option>
+					  <option :value="50.459">50. Qaf</option>
+					  <option :value="51.609">51. Ad-Dhariyat</option>
+					  <option :value="52.499">52. At-Tur</option>
+					  <option :value="53.629">53. An-Najm</option>
+					  <option :value="54.559">54. Al-Qamar</option>
+					  <option :value="55.789">55. Ar-Rahman</option>
+					  <option :value="56.969">56. Al-Waqi'ah</option>
+					  <option :value="57.299">57. Al-Hadeed</option>
+					  <option :value="58.229">58. Al-Mujadilah</option>
+					  <option :value="59.249">59. Al-Hashr</option>
+					  <option :value="60.139">60. Al-Mumtahanah</option>
+					  <option :value="61.149">61. As-Saff</option>
+					  <option :value="62.119">62. Al-Jumu'ah</option>
+					  <option :value="63.119">63. Al-Munafiqun</option>
+					  <option :value="64.189">64. At-Taghabun</option>
+					  <option :value="65.129">65. At-Talaq</option>
+					  <option :value="66.129">66. At-Tahreem</option>
+					  <option :value="67.309">67. Al-Mulk</option>
+					  <option :value="68.529">68. Al-Qalam</option>
+					  <option :value="69.529">69. Al-Haqqah</option>
+					  <option :value="70.449">70. Al-Ma'aarij</option>
+					  <option :value="71.289">71. Nuh</option>
+					  <option :value="72.289">72. Al-Jinn</option>
+					  <option :value="73.209">73. Al-Muzzammil</option>
+					  <option :value="74.569">74. Al-Muddathir</option>
+					  <option :value="75.409">75. Al-Qiyamah</option>
+					  <option :value="76.319">76. Al-Insan</option>
+					  <option :value="77.509">77. Al-Mursalat</option>
+					  <option :value="78.409">78. An-Naba'</option>
+					  <option :value="79.469">79. An-Nazi'at</option>
+					  <option :value="80.429">80. Abasa</option>
+					  <option :value="81.299">81. At-Takweer</option>
+					  <option :value="82.199">82. Al-Infitar</option>
+					  <option :value="83.369">83. Al-Mutaffifeen</option>
+					  <option :value="84.259">84. Al-Inshiqaq</option>
+					  <option :value="85.229">85. Al-Burooj</option>
+					  <option :value="86.179">86. At-Tariq</option>
+					  <option :value="87.199">87. Al-A'la</option>
+					  <option :value="88.269">88. Al-Ghashiyah</option>
+					  <option :value="89.309">89. Al-Fajr</option>
+					  <option :value="90.209">90. Al-Balad</option>
+					  <option :value="91.159">91. Ash-Shams</option>
+					  <option :value="92.219">92. Al-Lail</option>
+					  <option :value="93.119">93. Ad-Dhuha</option>
+					  <option :value="94.89">94. Ash-Sharh</option>
+					  <option :value="95.89">95. Al-Teen</option>
+					  <option :value="96.199">96. al-Alaq</option>
+					  <option :value="97.59">97. Al-Qadr</option>
+					  <option :value="98.89">98. Al-Bayyinah</option>
+					  <option :value="99.89">99. Az-Zalzala</option>
+					  <option :value="100.119">100. Al-Adiyat</option>
+					  <option :value="101.119">101. al-Qari`ah</option>
+					  <option :value="102.89">102. At-Takathur</option>
+					  <option :value="103.39">103. Al-Asr</option>
+					  <option :value="104.99">104. Al-Humazah</option>
+					  <option :value="105.59">105. Al-Feel</option>
+					  <option :value="106.49">106. Quraish</option>
+					  <option :value="107.79">107. Al-Maa'oun</option>
+					  <option :value="108.39">108. Al-Kawthar</option>
+					  <option :value="109.69">109. Al-Kafiroun</option>
+					  <option :value="110.39">110. An-Nasr</option>
+					  <option :value="111.59">111. Al-Masad</option>
+					  <option :value="112.49">112. Al-Ikhlas</option>
+					  <option :value="113.59">113. Al-Falaq</option>
+					  <option :value="114.69">114. Al-Nas</option>
+					</select>
+					<br>
+					<p class="hide">{{url}}</p>
+					<br>
+					<span class="hide">Selected:{{range}}</span>		        
+			        <div class="inline"><input v-model="startAyat" type='number'> - <input v-model="endAyat" type='number'></div>
+			        <span class="hide">{{audioUrl}}</span>
+			        <br>
+			        <p v-if="startShow" class="playing">Ayat: <span class="red">{{playing}}</span></p>
+			        <img v-if="startShow" class="img" :src="text">
+			        <br v-if="startShow">
+					<button class="play"  @click='playSurah(startAyat,endAyat)'>Play <i class="fas fa-play"></i></button>
+					<button class="play" v-if="pauseShow" @click='pas'>Pause <i class="fas fa-pause"></i></button>
+					<button class="play" v-if="resumeShow" @click='play'>Resume <i class="far fa-caret-square-right"></i></button>
+					{{urlUpdate(startAyat)}}
+					{{audioandUrl(range)}}					
+					<p class="wrong">{{message}}</p>
+					<p class="hide">{{endAyat}}</p>
+					<p class="hide">{{list}}</p>
+
+					<button @click="modal" class="button modal-button paddtops" data-target="modal" aria-haspopup="true"><i class="fas fa-info-circle"></i></button>
+				</div> 
+			</div>  
+    	</div>
+    </div>
+  <script src="./js/howler.core.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
