@@ -1,2 +1,4 @@
-For controling soiund I have used howler.js https://howlerjs.com/
-main js  written on https://vuejs.org
+For controling sound I have used howler.js https://howlerjs.com/
+app.js  written with vue.js  https://vuejs.org
+
+repository 'verses' and 'text' is empty. Resource can be found at http://www.everyayah.com/
